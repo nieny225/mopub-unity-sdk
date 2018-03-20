@@ -40,9 +40,11 @@ cp mopub-ios-sdk-unity/bin/libmopub-ios-sdk-unity.a unity/MoPubUnityPlugin/Asset
 validate
 cp mopub-ios-sdk-unity/bin/libMoPubSDK.a unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/libMoPubSDK.a
 validate
+cp -r mopub-ios-sdk-unity/bin/MoPub.bundle/ unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/
+validate
 cp -f mopub-ios-sdk/MoPubSDK/Resources/*.{html,png} unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/
 validate
-cp mopub-ios-sdk/MoPubSDK/Resources/MRAID.bundle/mraid.js unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/MRAID.bundle/mraid.js.prevent_unity_compilation
+mv unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/MRAID.bundle/mraid.js unity/MoPubUnityPlugin/Assets/Plugins/iOS/mopub/MoPub.bundle/MRAID.bundle/mraid.js.prevent_unity_compilation
 
 # Update the iOS resources used when packaging the unity assets.
 
@@ -54,32 +56,6 @@ echo "Copying all .h files from mopub-ios-sdk/MoPubSDK/ to unity/MoPubUnityPlugi
 find mopub-ios-sdk/MoPubSDK -name "*.h" -type f -exec cp {} unity/MoPubUnityPlugin/Assets/MoPub/Editor/Support/MoPubSDK \;
 validate
 
-# This is a hack until ADF-2658 makes it in.
-rm -rf mopub-ios-sdk/AdNetworkSupport/AdMob
-validate
-cp -R mopub-ios-sdk/AdNetworkSupport/GoogleAdMob mopub-ios-sdk/AdNetworkSupport/AdMob
-validate
-rm -rf mopub-ios-sdk/AdNetworkSupport/UnityAds
-validate
-cp -R mopub-ios-sdk/AdNetworkSupport/Unity mopub-ios-sdk/AdNetworkSupport/UnityAds
-validate
-
-# Clean and update the contents of all the supported iOS custom events. This is to ensure that the unity asset packages
-# are built with the most up to date changes.
-SUPPORT_LIBS=( "AdColony" "AdMob" "Chartboost" "Facebook" "Millennial" "UnityAds" "Vungle" )
-for SUPPORT_LIB in "${SUPPORT_LIBS[@]}"
-do
-    IOS_EXPORT_FOLDERS_SUPPORT="unity/MoPubUnityPlugin/Assets/MoPub/Editor/Support/$SUPPORT_LIB"
-
-    echo "Updating $SUPPORT_LIB Custom Events"
-    rm -rf $IOS_EXPORT_FOLDERS_SUPPORT
-    validate
-    cp -R mopub-ios-sdk/AdNetworkSupport/$SUPPORT_LIB $IOS_EXPORT_FOLDERS_SUPPORT
-    validate
-done
-
-# This is a hack until ADF-2658 makes it in.
-rm -rf mopub-ios-sdk/AdNetworkSupport/AdMob
-validate
-rm -rf mopub-ios-sdk/AdNetworkSupport/UnityAds
-validate
+# Clean up submodule
+cd mopub-ios-sdk
+git checkout .

@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-using MoPubReward = MoPubManager.MoPubReward;
-
 #if UNITY_ANDROID
+
+using MoPubReward = MoPubManager.MoPubReward;
 
 public class MoPubAndroidRewardedVideo
 {
@@ -24,7 +24,7 @@ public class MoPubAndroidRewardedVideo
 	}
 
 
-	// Initializes the rewarded video system
+	// Initializes the rewarded ad system
 	public static void initializeRewardedVideo ()
 	{
 		if (Application.platform != RuntimePlatform.Android)
