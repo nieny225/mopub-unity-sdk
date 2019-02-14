@@ -1,3 +1,52 @@
+## Verison 5.5.0 (January 31, 2019)
+- The MoPub Unity Plugin now includes versions 5.5.0 of the MoPub Android SDK and the MoPub iOS SDK.
+- The SDK Manager can now also install and upgrade mediated network SDKs.
+- Google's [Unity Jar Resolver|https://github.com/googlesamples/unity-jar-resolver] is included.
+It is used to download the mediation adapters, network SDKs, and android support libraries.
+- Improved logging throughout the SDK.
+- Automatic Advanced Bidder initialization.
+- Fixed a problem with the incorrect framework path in the Xcode project for Unity 2018.3+.
+
+## Version 5.4.1 (November 28, 2018)
+- The MoPub Unity Plugin now includes versions 5.4.1 of the MoPub Android SDK and the MoPub iOS SDK.
+- Fixed Unity 5.3 sample app crash when attempting to show MRAID rich media ads on Android 9 devices.
+- Fixed typo "Millenial" to "Millennial" in Rewarded Video.
+- Fixed SDK Manager version comparisons.
+- NOTE: The SDK Manager can not update to 5.4.1, so please update manually.
+
+## Version 5.4.0 (October 9, 2018)
+- The MoPub Unity Plugin now includes versions 5.4.0 of the MoPub Android SDK and the MoPub iOS SDK.
+- The MoPub menu now has more features: About, Documentation, Report Issue, and SDK Manager
+- The SDK Manager dialog allows checking for and updating to new versions of the SDK.
+- The SDK directory structure has changed:  All files are now collected under Assets/MoPub.  See the README file for notes on migration.
+
+## Version 5.3.0 (August 15, 2018)
+- The MoPub Unity Plugin now includes versions 5.3.0 of the MoPub Android SDK and the MoPub iOS SDK.
+
+## Version 5.2.0 (July 11, 2018)
+- A new MoPub Preferences pane has been added to Unity Preferences, with optional Beta features.
+- A Beta MoPub Menu has been added, including build commands for the MoPub wrappers. Please see the [developer support site](https://developers.mopub.com/docs/unity/getting-started/) for details.
+- A Beta of the experimental MoPub Native Ad format has been included. Please see the [developer support site](https://developers.mopub.com/docs/unity/getting-started/) for details.
+- Fixed an issue when building for Android with IL2CPP.
+- The MoPub Unity Plugin now includes versions 5.2.0 of the MoPub Android SDK and the MoPub iOS SDK.
+
+## Version 5.1.0 (June 6, 2018)
+- Allow publishers to determine which users should be treated as GDPR-compliant users through the new API `ForceGdprApplicable`.
+- Loading MoPub's consent dialog is only possible when GDPR rules applies to the app.
+- Added support for AdMob's NPA mediation setting ([Issue #15](https://github.com/mopub/mopub-unity-sdk/issues/15)).
+- Fixed event name for `RewardedVideoReceivedReward` on Android ([Issue #16](https://github.com/mopub/mopub-unity-sdk/issues/16)).
+- Fixed Rewarded Video adapter class names for AdMob and UnityAds.
+- Banners now only refresh after an impression is made.
+
+## Version 5.0.1 (May 21, 2018)
+- Fixes a bug that affected iOS builds on Unity versions below 2017.1.
+- Note that a manual step in XCode is required for these cases to ensure that the `MoPubSDKFramework.framework` is included in the Embedded Binaries list. Please see the [Getting Started Guide](https://developers.mopub.com/docs/unity/getting-started/) for details.
+
+## Version 5.0.0 (May 16, 2018)
+- General Data Protection Regulation (GDPR) update to support a way for publishers to determine GDPR applicability and to obtain and manage consent from users in European Economic Area, the United Kingdom, or Switzerland to serve personalized ads.
+- New SDK initialization method to initialize consent management and rewarded video ad networks. Required for receiving personalized ads. In future versions of the SDK, initialization will be required to receive ads.
+- Sample app directory updated to `unity-sample-app/`
+
 ## Version 4.20.2 (March 16, 2018)
 - Fixed an issue with banners being occluded by the notch in iPhone X; banners (regardless of platform or positioning) are now restricted to the device's safe area.
 - We are formally separating network adapters from our MoPub SDK. This is to enable an independent release cadence resulting in faster updates and certification cycles. New mediation location is accessible [here](https://github.com/mopub/mopub-unity-mediation).

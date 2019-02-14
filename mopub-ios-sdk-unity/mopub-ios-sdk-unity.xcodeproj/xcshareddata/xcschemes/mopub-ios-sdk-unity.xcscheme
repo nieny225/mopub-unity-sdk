@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0940"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D208F0C1CAD6A2100F2C8F0"
+               BlueprintIdentifier = "57230DDC208932130011A197"
                BuildableName = "libmopub-ios-sdk-unity.a"
                BlueprintName = "mopub-ios-sdk-unity"
                ReferencedContainer = "container:mopub-ios-sdk-unity.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D208F0C1CAD6A2100F2C8F0"
+            BlueprintIdentifier = "57230DDC208932130011A197"
             BuildableName = "libmopub-ios-sdk-unity.a"
             BlueprintName = "mopub-ios-sdk-unity"
             ReferencedContainer = "container:mopub-ios-sdk-unity.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D208F0C1CAD6A2100F2C8F0"
+            BlueprintIdentifier = "57230DDC208932130011A197"
             BuildableName = "libmopub-ios-sdk-unity.a"
             BlueprintName = "mopub-ios-sdk-unity"
             ReferencedContainer = "container:mopub-ios-sdk-unity.xcodeproj">

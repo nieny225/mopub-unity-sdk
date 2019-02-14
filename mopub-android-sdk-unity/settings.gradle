@@ -1,6 +1,22 @@
 rootProject.name = 'mopub-sdk-unity'
 
+def mopubSdkDir = file('../mopub-android').exists() ? 'mopub-android' : 'mopub-android-sdk'
+def mopubSdkDirValueFrom = 'settings.gradle file'
+
+if (hasProperty('mopubAndroidSdkDir')) {
+    mopubSdkDir = mopubAndroidSdkDir
+    mopubSdkDirValueFrom = 'gradle.properties file (project-level or user-level)'
+}
+
+if (System.getenv('SDK_DIR')) {
+    mopubSdkDir = System.getenv('SDK_DIR')
+    mopubSdkDirValueFrom = 'environment variable SDK_DIR'
+}
+
+println "Using MoPub Android SDK dir: " + mopubSdkDir
+println "as defined by: " + mopubSdkDirValueFrom + "\n"
+
 include ':mopub-sdk'
-project(':mopub-sdk').projectDir = new File("../mopub-android-sdk/mopub-sdk")
+project(':mopub-sdk').projectDir = new File("../" + mopubSdkDir + "/mopub-sdk")
 
 include ':mopub-sdk:mopub-sdk-base', ':mopub-sdk:mopub-sdk-banner', ':mopub-sdk:mopub-sdk-interstitial', ':mopub-sdk:mopub-sdk-rewardedvideo', ':mopub-sdk:mopub-sdk-native-static', ':mopub-sdk:mopub-sdk-native-video'
